@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/output.css" />
+    <title>Login</title>
+  </head>
+  <body
+    class="flex flex-col justify-center items-center h-screen bg-linear-to-br from-blue-50 to-blue-100"
+  >
+    <div class="w-full max-w-md">
+      <h1 class="font-bold text-3xl text-center text-blue-900 mb-8">Login</h1>
+      <form
+        class="bg-white rounded-lg shadow-lg p-8 space-y-6"
+        method="POST"
+        action="/user/login"
+      >
+        <% if (locals.error) { %>
+          <p class="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm font-semibold text-red-700">
+            <%= error %>
+          </p>
+        <% } %>
+
+        <% if (locals.message) { %>
+          <p class="rounded-lg bg-green-50 border border-green-200 px-4 py-3 text-sm font-semibold text-green-700">
+            <%= message %>
+          </p>
+        <% } %>
+
+        <div class="flex flex-col">
+          <label class="text-sm font-semibold text-gray-700 mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            required
+            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+        </div>
+
+        <div class="flex flex-col">
+          <label class="text-sm font-semibold text-gray-700 mb-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            name="password"
+            required
+            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+        </div>
+
+        <button
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 mt-8"
+          type="submit"
+        >
+          Login
+        </button>
+
+        <p class="text-center text-sm text-gray-600">
+          Don't have an account?
+          <a class="font-semibold text-blue-700 hover:text-blue-900" href="/signup">
+            Sign up
+          </a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
