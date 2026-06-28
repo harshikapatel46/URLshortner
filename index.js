@@ -20,7 +20,7 @@ require("dotenv").config();
 const app = express();
 
 // 3. Database Connection
-connectDB(process.env.MONGO_URI)
+connectDb(process.env.MONGODB_URL)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => {
     console.error("Error connecting to database", err);
