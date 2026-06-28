@@ -20,7 +20,7 @@ require("dotenv").config();
 const app = express();
 
 // 3. Database Connection
-connectDb("mongodb://localhost:27017/URLshortner")
+connectDb(process.env.MONGODB_URL)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => {
     console.log("Error connecting to database", err);
