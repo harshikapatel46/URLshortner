@@ -13,6 +13,11 @@ const urlRoute = require("./routes/url");
 const staticRoute = require("./routes/staticRouter");
 const userRoute = require("./routes/userRoute");
 
+require("dotenv").config();
+
+connectDB(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.error("Error connecting to database", err));
 // 2. App Initialization
 const app = express();
 
