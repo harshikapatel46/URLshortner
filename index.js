@@ -15,17 +15,15 @@ const userRoute = require("./routes/userRoute");
 
 require("dotenv").config();
 
-connectDB(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.error("Error connecting to database", err));
+
 // 2. App Initialization
 const app = express();
 
 // 3. Database Connection
-connectDb("mongodb://localhost:27017/URLshortner")
+connectDB(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => {
-    console.log("Error connecting to database", err);
+    console.error("Error connecting to database", err);
     process.exit(1);
   });
 
